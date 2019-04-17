@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<body>
+<div class="modal-content">
+    <div class="modal-header">
+        <h2>Задачи</h2>
+    </div>
+    <div class="modal-body">
+        
+    <table>
+        <tr>
+            <th>Select</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>StartDate</th>
+            <th>EndDate</th>
+        </tr>
+        @foreach(var task in ViewBag.Tasks)
+        {
+            <tr>
+            <td><input name="selectTask" type="radio" value=@task.Title/></td>
+                <td>@task.Title</td>
+                <td>@task.Description</td>
+                <td>@task.StartDate</td>
+                <td>@task.EndDate</td>
+            </tr>
+        }
+    </table>
+    <form method="post">
+        <input type="submit" value="Select" />
+    </form>
+    
+    @*<p>Выбор задачи<select name="seletTask">
+            <option disabled>Выберите задачу</option>
+    @foreach (var task in ViewBag.Tasks)
+    {
+        <option value="task.Title">@task.Title</option>
+    }
+            </select>*@
+    </div>
+</div>
+    </body>
+</html>
