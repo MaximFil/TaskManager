@@ -9,6 +9,10 @@
   <ItemGroup>
     <Compile Remove="Migrations\20190418084937_MigrationDB.cs" />
     <Compile Remove="Migrations\20190418084937_MigrationDB.Designer.cs" />
+    <Compile Remove="Migrations\20190418102454_MIgr.cs" />
+    <Compile Remove="Migrations\20190418102454_MIgr.Designer.cs" />
+    <Compile Remove="Migrations\20190418102514_MIgro.cs" />
+    <Compile Remove="Migrations\20190418102514_MIgro.Designer.cs" />
   </ItemGroup>
 
 

@@ -1,7 +1,5 @@
 ﻿@model IEnumerable<TaskManager.Models.Task>
-<!DOCTYPE html>
-<html>
-<body>
+
 <div class="modal-content">
     <div class="modal-header">
         <h2>Задачи</h2>
@@ -24,21 +22,12 @@
                 <td>@task.Description</td>
                 <td>@task.StartDate</td>
                 <td>@task.EndDate</td>
+                <td>@Html.ActionLink("Select","ModelSelectTask","Home",new { id=task.Id})</td>
             </tr>
         }
     </table>
     <form method="post">
         <input type="submit" value="Select" />
     </form>
-    
-    @*<p>Выбор задачи<select name="seletTask">
-            <option disabled>Выберите задачу</option>
-    @foreach (var task in ViewBag.Tasks)
-    {
-        <option value="task.Title">@task.Title</option>
-    }
-            </select>*@
     </div>
 </div>
-    </body>
-</html>

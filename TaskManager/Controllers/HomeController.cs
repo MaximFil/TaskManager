@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TaskManager.Data;
 using TaskManager.Models;
+using static TaskManager.Enums.Enum;
 
 namespace TaskManager.Controllers
 {
     public class HomeController : Controller
     {
-        ApplicationDbContext db;
+        private readonly ApplicationDbContext db;
         public HomeController(ApplicationDbContext context)
         {
             db = context;
@@ -23,18 +24,12 @@ namespace TaskManager.Controllers
         [HttpGet]
         public ActionResult ModalSelectTask()
         {
-            //List<string> tasksList = new List<string>();
-            //var tasks = db.Tasks.ToList(); 
-            //foreach(var t in tasks)
-            //{
-            //    tasksList.Add(t.Title);
-            //}
-            //return View(tasksList);
-            IEnumerable<Models.Task> Tasks = db.Tasks.Where(task => task.Status.Name == ItemsStatus.NotStarted.ToString());
+            IEnumerable<Models.Task> Tasks = db.Tasks
+                .Where(task => task.Status.Name == TaskStatuses.NotStarted.ToString());
             return View(Tasks);
         }
         [HttpPost]
-        public RedirectResult ModalSelectTask(int id=2)
+        public RedirectResult ModalSelectTask(int id)
         {
             return RedirectPermanent("/Home/Index");
         }
@@ -47,7 +42,10 @@ namespace TaskManager.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View(new ErrorViewModel
+            {
+                RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
+            });
         }
     }
 }

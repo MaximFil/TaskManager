@@ -26,7 +26,7 @@ namespace TaskManager
                 try
                 {
                     var context = services.GetRequiredService<ApplicationDbContext>();
-                    InitializeStatus.Initialize(context);
+                    DefaultStatuses.Initialize(context);
                 }
                 catch (Exception ex)
                 {
