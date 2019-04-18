@@ -6,6 +6,11 @@
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Migrations\20190418084937_MigrationDB.cs" />
+    <Compile Remove="Migrations\20190418084937_MigrationDB.Designer.cs" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Extended.Wpf.Toolkit" Version="3.5.0" />

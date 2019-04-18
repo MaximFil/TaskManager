@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@model IEnumerable<TaskManager.Models.Task>
+<!DOCTYPE html>
 <html>
 <body>
 <div class="modal-content">
@@ -15,7 +16,7 @@
             <th>StartDate</th>
             <th>EndDate</th>
         </tr>
-        @foreach(var task in ViewBag.Tasks)
+        @foreach(var task in Model)
         {
             <tr>
             <td><input name="selectTask" type="radio" value=@task.Title/></td>
