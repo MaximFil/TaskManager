@@ -35,18 +35,18 @@
                 <span asp-validation-for="EndDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ProjectId" class="control-label"></label>
-                <select asp-for="ProjectId" class="form-control" asp-items="ViewBag.ProjectId"></select>
+                <label asp-for="ProjectId" class="control-label">Project</label>
+                <select asp-for="ProjectId" class="form-control" asp-items="ViewBag.ProjectName"></select>
                 <span asp-validation-for="ProjectId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="StatusId" class="control-label"></label>
-                <select asp-for="StatusId" class="form-control" asp-items="ViewBag.StatusId"></select>
+                <label asp-for="StatusId" class="control-label">Status</label>
+                <select asp-for="StatusId" class="form-control" asp-items="ViewBag.StatusName"></select>
                 <span asp-validation-for="StatusId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="UserId" class="control-label"></label>
-                <select asp-for="UserId" class="form-control" asp-items="ViewBag.UserId"></select>
+                <label asp-for="UserId" class="control-label">User</label>
+                <select asp-for="UserId" class="form-control" asp-items="ViewBag.UserName"></select>
                 <span asp-validation-for="UserId" class="text-danger"></span>
             </div>
             <div class="form-group">

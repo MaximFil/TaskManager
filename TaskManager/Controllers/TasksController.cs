@@ -50,9 +50,9 @@ namespace TaskManager.Controllers
         // GET: Tasks/Create
         public IActionResult Create()
         {
-            ViewData["ProjectId"] = new SelectList(_context.Projects, "Id", "Id");
-            ViewData["StatusId"] = new SelectList(_context.Statuses, "Id", "Id");
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id");
+            ViewData["ProjectName"] = new SelectList(_context.Projects, "Id", "Name");
+            ViewData["StatusName"] = new SelectList(_context.Statuses, "Id", "Name");
+            ViewData["UserName"] = new SelectList(_context.Users, "Id", "UserName");
             return View();
         }
 
@@ -69,9 +69,9 @@ namespace TaskManager.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProjectId"] = new SelectList(_context.Projects, "Id", "Id", task.ProjectId);
-            ViewData["StatusId"] = new SelectList(_context.Statuses, "Id", "Id", task.StatusId);
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", task.UserId);
+            ViewData["ProjectId"] = new SelectList(_context.Projects, "Id", "Name", task.ProjectId);
+            ViewData["StatusId"] = new SelectList(_context.Statuses, "Id", "Name", task.StatusId);
+            ViewData["UserId"] = new SelectList(_context.Users, "Id", "UserName", task.UserId);
             return View(task);
         }
 
@@ -88,9 +88,9 @@ namespace TaskManager.Controllers
             {
                 return NotFound();
             }
-            ViewData["ProjectId"] = new SelectList(_context.Projects, "Id", "Id", task.ProjectId);
-            ViewData["StatusId"] = new SelectList(_context.Statuses, "Id", "Id", task.StatusId);
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", task.UserId);
+            ViewData["ProjectName"] = new SelectList(_context.Projects, "Id", "Name", task.ProjectId);
+            ViewData["StatusName"] = new SelectList(_context.Statuses, "Id", "Name", task.StatusId);
+            ViewData["UserName"] = new SelectList(_context.Users, "Id", "UserName", task.UserId);
             return View(task);
         }
 
@@ -126,9 +126,9 @@ namespace TaskManager.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProjectId"] = new SelectList(_context.Projects, "Id", "Id", task.ProjectId);
-            ViewData["StatusId"] = new SelectList(_context.Statuses, "Id", "Id", task.StatusId);
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", task.UserId);
+            ViewData["ProjectId"] = new SelectList(_context.Projects, "Id", "Name", task.ProjectId);
+            ViewData["StatusId"] = new SelectList(_context.Statuses, "Id", "Name", task.StatusId);
+            ViewData["UserId"] = new SelectList(_context.Users, "Id", "UserName", task.UserId);
             return View(task);
         }
 
