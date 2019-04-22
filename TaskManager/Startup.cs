@@ -42,19 +42,13 @@ namespace TaskManager
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            //services.AddIdentity<IdentityUser, IdentityRole>(opts =>
-            //{
-            //    opts.Password.RequiredLength = 5;   // минимальная длина
-            //    opts.Password.RequireNonAlphanumeric = false;   // требуются ли не алфавитно-цифровые символы
-            //    opts.Password.RequireLowercase = false; // требуются ли символы в нижнем регистре
-            //    opts.Password.RequireUppercase = false; // требуются ли символы в верхнем регистре
-            //    opts.Password.RequireDigit = false; // требуются ли цифры
-            //});
             services.Configure<IdentityOptions>(options =>
             {
-                options.Password.RequireDigit = true;
-                options.Password.RequireLowercase = true;
-                options.Password.RequiredLength = 4;
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequiredLength = 6;
                 options.Password.RequiredUniqueChars = 1;
             });
 
