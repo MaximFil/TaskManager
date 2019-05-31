@@ -17,7 +17,7 @@ namespace TaskManager.Models
         public DateTime StartDate { get; set; }
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
-        public DateTime EndDate { get; set; }
+        public DateTime? EndDate { get; set; }
         public int? ProjectId { get; set; }
         public Project Project { get; set; }
         public int? StatusId { get; set; }

@@ -24,26 +24,26 @@
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             @*<div class="form-group">
-                <label asp-for="StartDate" class="control-label"></label>
-                <input asp-for="StartDate" id="start" class="form-control" />
-                <span asp-validation-for="StartDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="EndDate" class="control-label"></label>
-                <input asp-for="EndDate" id="end" class="form-control" />
-                <span asp-validation-for="EndDate" class="text-danger"></span>
-            </div>*@
+                    <label asp-for="StartDate" class="control-label"></label>
+                    <input asp-for="StartDate" id="start" class="form-control" />
+                    <span asp-validation-for="StartDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="EndDate" class="control-label"></label>
+                    <input asp-for="EndDate" id="end" class="form-control" />
+                    <span asp-validation-for="EndDate" class="text-danger"></span>
+                </div>*@
             <div class="form-group">
                 <label asp-for="ProjectId" class="control-label">ProjectName</label>
-                <select asp-for="ProjectId"  class ="form-control" asp-items="ViewBag.ProjectName"></select>
+                <select asp-for="ProjectId" class="form-control" asp-items="ViewBag.ProjectName"></select>
             </div>
             <div class="form-group">
                 <label asp-for="StatusId" class="control-label">StatusName</label>
-                <select asp-for="StatusId" class ="form-control" asp-items="ViewBag.StatusName"></select>
+                <select asp-for="StatusId" class="form-control" asp-items="ViewBag.StatusName"></select>
             </div>
             <div class="form-group">
                 <label asp-for="UserId" class="control-label">UserName</label>
-                <select asp-for="UserId" class ="form-control" asp-items="ViewBag.UserName"></select>
+                <select asp-for="UserId" class="form-control" asp-items="ViewBag.UserName"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

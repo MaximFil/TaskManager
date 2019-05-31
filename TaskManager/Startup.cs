@@ -42,6 +42,8 @@ namespace TaskManager
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
             services.Configure<IdentityOptions>(options =>
             {
                 options.Password.RequireDigit = false;
@@ -81,7 +83,7 @@ namespace TaskManager
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Tasks}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

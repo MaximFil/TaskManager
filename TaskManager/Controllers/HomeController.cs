@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using TaskManager.Data;
 using TaskManager.Models;
 using static TaskManager.Enums.Enum;
@@ -19,7 +20,9 @@ namespace TaskManager.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            //var applicationDbContext = db.Tasks.Include(t => t.Project).Include(t => t.Status).Include(t => t.User);
+            var tasks = db.Tasks.Include(t => t.Project).Include(t => t.Status).Include(t => t.User).Where(t => t.StatusId != 3);
+            return View(tasks);
         }
         [HttpGet]
         public ActionResult ModalSelectTask()

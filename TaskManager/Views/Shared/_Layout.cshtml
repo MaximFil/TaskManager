@@ -1,9 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@using System.Security.Claims;
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - TaskManager</title>
+    <title>@ViewData["Title"] - Task Manager </title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -21,7 +23,17 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TaskManager</a>
+                @*@{
+                    var _userId = this.User.FindFirstValue(ClaimTypes.Name);
+                }
+                @if (_userId == "Admin@gmail.com")
+                {
+                    <a class="navbar-brand" asp-area="" asp-controller="Projects" asp-action="Index">TaskManager</a>
+                }
+                else if (_userId != "Unassigned" && _userId != null)
+                {
+                    <a class="navbar-brand" asp-area="" asp-controller="Tasks" asp-action="UserIndex">TaskManager</a>
+                }*@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -29,18 +41,51 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Projects" asp-action="Index">Project</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Tasks" asp-action="Index">Task</a>
-                        </li>
+                        @{
+                            var userId = this.User.FindFirstValue(ClaimTypes.Name);
+                        }
+                        @if (userId == "Admin@gmail.com")
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Projects" asp-action="Index">Projects</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Tasks" asp-action="Index">Tasks</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Tasks" asp-action="FreeTasks">FreeTasks</a>
+                            </li>
+                        }
+                        else if (userId != "Unassigned" && userId != null)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Tasks" asp-action="UserCreate">AddTask</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Tasks" asp-action="UserIndex">MyTasks</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Tasks" asp-action="FreeAllTasks">FreeTasks</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Tasks" asp-action="InProgressTasks">InProgressTasks</a>
+                            </li>
+
+                            @*<li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Tasks" asp-action="Index">Всезадачи</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Tasks" asp-action="UserIndex">ЗадПольз</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Tasks" asp-action="ProgressUserIndex">ВыполнЗадПольз</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Tasks" asp-action="NotStartedUserTasks">НеНачатЗадПол</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Tasks" asp-action="FreeAllTasks">СвобЗад</a>
+                    </li>*@}
                     </ul>
                 </div>
             </div>

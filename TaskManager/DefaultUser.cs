@@ -16,7 +16,9 @@ namespace TaskManager
         {
             var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
             var user = new IdentityUser { Email = "Unassigned", UserName = "Unassigned" };
-            userManager.CreateAsync(user, "1234.Qwer");
+            var user2 = new IdentityUser { Email = "Admin@gmail.com", UserName = "Admin@gmail.com" };
+            var u =userManager.CreateAsync(user, "1234.Qwer").Result;
+            var u2=userManager.CreateAsync(user2,"123.filFIL").Result;
         }
     }
 }

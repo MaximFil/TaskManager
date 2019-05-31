@@ -11,7 +11,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using TaskManager.Data;
 using TaskManager.Models;
-using Xceed.Wpf.Toolkit;
 
 namespace TaskManager
 {

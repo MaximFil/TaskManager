@@ -1,0 +1,29 @@
+﻿@model IEnumerable<TaskManager.Models.Task>
+    <div>
+        <h2>Not completed tasks</h2>
+        <table>
+            <tr>
+                <th>Id task     </th>
+                <th>Project    </th>
+                <th>Description    </th>
+                <th>StartDate   </th>
+                <th>EndDate   </th>
+                <th>Status   </th>
+                <th>Title   </th>
+                <th>User   </th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id   </td>
+                    <td>@item.Project.Name   </td>
+                    <td>@item.Description  </td>
+                    <td>@item.StartDate  </td>
+                    <td>@item.EndDate  </td>
+                    <td>@item.Status.Name  </td>
+                    <td>@item.Title  </td>
+                    <td>@item.User.UserName  </td>
+                </tr>
+            }
+        </table>
+    </div>

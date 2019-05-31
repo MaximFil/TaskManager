@@ -6,25 +6,8 @@
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Migrations\20190418084937_MigrationDB.cs" />
-    <Compile Remove="Migrations\20190418084937_MigrationDB.Designer.cs" />
-    <Compile Remove="Migrations\20190418102454_MIgr.cs" />
-    <Compile Remove="Migrations\20190418102454_MIgr.Designer.cs" />
-    <Compile Remove="Migrations\20190418102514_MIgro.cs" />
-    <Compile Remove="Migrations\20190418102514_MIgro.Designer.cs" />
-    <Compile Remove="Migrations\20190418105043_Migr.cs" />
-    <Compile Remove="Migrations\20190418105043_Migr.Designer.cs" />
-    <Compile Remove="Migrations\20190418130907_MigrationDB.cs" />
-    <Compile Remove="Migrations\20190418130907_MigrationDB.Designer.cs" />
-    <Compile Remove="Migrations\20190421184720_Migr.cs" />
-    <Compile Remove="Migrations\20190421184720_Migr.Designer.cs" />
-  </ItemGroup>
-
 
   <ItemGroup>
-    <PackageReference Include="Extended.Wpf.Toolkit" Version="3.5.0" />
-    <PackageReference Include="Microsoft.AspNet.Identity.Owin" Version="2.2.2" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.2.0" />
@@ -36,13 +19,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
-    <PackageReference Include="Unity" Version="5.10.3" />
-  </ItemGroup>
-
-
-  <ItemGroup>
-    <Folder Include="Areas\" />
-    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

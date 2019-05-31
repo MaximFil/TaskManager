@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -22,6 +23,20 @@ namespace TaskManager.Controllers
         // GET: Projects
         public async Task<IActionResult> Index()
         {
+            var userId = this.User.FindFirstValue(ClaimTypes.Name);
+            if (userId == "Admin@gmail.com")
+            {
+                ViewBag.admin = true;
+            }
+            else
+            {
+                ViewBag.admin = false;
+            }
+          //  var name = _context.Tasks.Where(t=>t.User.);
+            //if ()
+            //{
+
+            //}
             return View(await _context.Projects.ToListAsync());
         }
 

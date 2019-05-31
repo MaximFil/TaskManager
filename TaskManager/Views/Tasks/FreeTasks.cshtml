@@ -1,18 +1,11 @@
 ﻿@model IEnumerable<TaskManager.Models.Task>
-@using System.Security.Claims;
 
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Tasks</h1>
-@if (@ViewBag.check == true)
-{
-    <p>
-        <a asp-action="Create">Create New</a>
-    </p>
-}
+<h1>Free Tasks</h1>
 <table class="table">
     <thead>
         <tr>
@@ -65,19 +58,9 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.User.UserName)
                 </td>
-                @if (@ViewBag.check == true)
-                {
-                    <td>
-                 @{
-                            var userId = this.User.FindFirstValue(ClaimTypes.Name);
-                        }
-                        @if (userId == "Admin@gmail.com")
-                        {
-                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>   
-                        @*<a asp-action="Details" asp-route-id="@item.Id">Details</a> ;*@
-                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                                }
-                    </td>}
+                <td>
+                    <a asp-action="Appoint" asp-route-id="@item.Id">appoint</a>
+                </td>
             </tr>
         }
     </tbody>
